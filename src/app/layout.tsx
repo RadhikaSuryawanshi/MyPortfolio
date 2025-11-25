@@ -29,7 +29,9 @@ export default function RootLayout({
       <head>
         <style>
              @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+             @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
         </style>
+      
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}  
       >
