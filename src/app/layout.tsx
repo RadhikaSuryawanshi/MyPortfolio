@@ -1,8 +1,11 @@
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import Tabbar from "./Components/tabbar";
+import Dock from "./Components/Dock";
+import Dockmain from "./Components/Dockmain";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +27,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
     <html lang="en">
       <head>
@@ -36,19 +41,19 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}  
       >
         <div className="relative ">
-           {/* Page content */}
+         
         <main className=""> 
           {children}
         </main>
 
         {/* Dock fixed at bottom */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2">
-          <Tabbar />
+        <div className="fixed bottom-0 left-1/2 -translate-x-1/2">
+        {/* <Dock items={[]}/> */}
+        <Dockmain/>
         </div>
-        </div>
+        </div> 
 
-      {/* {children} */}
-      {/* <Tabbar/>      */}
+     
       </body>
     </html>
   );
