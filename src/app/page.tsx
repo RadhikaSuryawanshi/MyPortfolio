@@ -1,13 +1,30 @@
+'use client'
 import Link from "next/link";
+import Particles from "./Components/Particles";
 
 
 export default function Mainpage() {
 
 
   return(
-    <div className="w-full h-screen ">
-      <div className="w-full h-full p-3  flex flex-col justify-between">
-        <div className="w-full h-[85%]  flex flex-col justify-center items-center">
+    <div className="w-full h-screen  relative">
+    
+<div style={{ width: '100%', height: '600px', position: 'absolute' }}>
+  <Particles
+    particleColors={['#9b5bfb', '#c8a3ff']}
+    particleCount={1000}
+    particleSpread={10}
+    speed={0.1}
+    particleBaseSize={100}
+    moveParticlesOnHover={true}
+    alphaParticles={false}
+    disableRotation={false}
+  />
+</div>
+
+      <div className="w-full h-full p-3  flex flex-col justify-between ">
+
+        <div className="w-full h-[85%]  flex flex-col justify-center items-center ">
           <p className="font-bold text-[1rem]">“She builds software the way she builds herself  <u>Beautifully</u>.”</p>
    
     <section className="relative w-full h-[40%] flex items-center justify-center overflow-hidden mt-3">
@@ -29,7 +46,8 @@ export default function Mainpage() {
       {/* <div className="w-full h-[10%] bg-gray-500 flex justify-center items-center">
         </div> */}
         </div>
-              </div>
+        </div>
+      //  </div>
    
     
     

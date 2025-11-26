@@ -40,3 +40,12 @@ body {
   font-style: normal;
   font-stretch: extra-expanded;
 }
+
+
+.playfair-display{
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400,900;
+  font-style: normal;
+  font-stretch: ultra-expanded;
+}

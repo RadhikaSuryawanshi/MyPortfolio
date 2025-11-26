@@ -35,6 +35,7 @@ export default function RootLayout({
         <style>
              @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
              @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+             @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         </style>
       
       </head>
