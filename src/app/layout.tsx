@@ -1,10 +1,11 @@
 
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Permanent_Marker } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import Dock from "./Components/Dock";
-import Dockmain from "./Components/Dockmain";
+import Dockmain from "../Components/Dockmain";
+import { ThemeProvider } from "@/Components/Theme-provider";
+
+
 
 
 const geistSans = Geist({
@@ -16,6 +17,13 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -30,19 +38,25 @@ export default function RootLayout({
 
 
   return (
-    <html lang="en">
+    <html lang="en"  suppressHydrationWarning>
       <head>
+        <title>Radhika</title>
         <style>
              @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-             @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
              @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
         </style>
       
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}  
+      <body className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}  
       >
+           <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
         <div className="relative ">
-         
+           
         <main className=""> 
           {children}
         </main>
@@ -53,6 +67,7 @@ export default function RootLayout({
         <Dockmain/>
         </div>
         </div> 
+        </ThemeProvider>
 
      
       </body>

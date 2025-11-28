@@ -1,5 +1,12 @@
 'use client';
-
+import { Moon, Sun } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import {
   motion,
   MotionValue,
@@ -10,6 +17,7 @@ import {
   AnimatePresence
 } from 'motion/react';
 import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
+import { useTheme } from "next-themes";
 
 export type DockItemData = {
   icon: React.ReactNode;
@@ -76,7 +84,7 @@ function DockItem({
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center rounded-full bg-gray-200   shadow-md ${className}`}
+      className={`relative inline-flex items-center justify-center rounded-full dark:bg-neutral-800 bg-gray-200   shadow-md ${className}`}
       tabIndex={0}
       role="button"
       aria-haspopup="true"
@@ -115,7 +123,7 @@ function DockLabel({ children, className = '', isHovered }: DockLabelProps) {
           animate={{ opacity: 1, y: -10 }}
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-neutral-300 bg-neutral-100 px-2 py-0.5 text-xs text-gray-700`}
+          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-neutral-300 bg-neutral-100 dark:bg-neutral-800 dark:text-white dark:border-neutral-900 px-2 py-0.5 text-xs text-gray-700`}
           role="tooltip"
           style={{ x: '-50%' }}
         >
@@ -145,10 +153,11 @@ export default function Dock({
   panelHeight = 64,
   dockHeight = 256,
   baseItemSize = 50
+
 }: DockProps) {
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
-
+ const { setTheme } = useTheme()
   const maxHeight = useMemo(() => Math.max(dockHeight, magnification + magnification / 2 + 4), [magnification]);
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
@@ -164,7 +173,7 @@ export default function Dock({
           isHovered.set(0);
           mouseX.set(Infinity);
         }}
-        className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl bg-gray-100 pb-2 px-4`}
+        className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl bg-gray-100 dark:bg-neutral-900/20 backdrop-blur-xs pb-2 px-4`}
         style={{ height: panelHeight }}
         role="toolbar"
         aria-label="Application dock"
@@ -179,11 +188,30 @@ export default function Dock({
             distance={distance}
             magnification={magnification}
             baseItemSize={baseItemSize}
+            
           >
             <DockIcon>{item.icon}</DockIcon>
             <DockLabel>{item.label}</DockLabel>
-          </DockItem>
+               </DockItem>
         ))}
+         <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline" size="icon">
+          <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+          <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+          <span className="sr-only">Toggle theme</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        <DropdownMenuItem onClick={() => setTheme("light")}>
+          Light
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>
+          Dark
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+
       </motion.div>
     </motion.div>
   );
