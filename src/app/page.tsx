@@ -25,7 +25,7 @@ export default function Mainpage() {
 
       <div className="w-full h-full p-3  flex flex-col justify-between ">
 
-        <div className="w-full h-[85%]  flex flex-col justify-center items-center backdrop-blur-xs md:backdrop-blur-none gap-0 lg:gap-0">
+        <div className="w-full h-[65%] lg:h-[85%] md:h-[85%]  flex flex-col justify-center items-center backdrop-blur-xs md:backdrop-blur-none gap-0 lg:gap-0">
           <p className="font-bold text-[0.6rem] lg:text-[1rem]">“She builds software the way she builds herself  <u>Beautifully</u>.”</p>
    
     <section className="relative w-full h-[40%] flex items-center justify-center overflow-hidden  mt-0 lg:mt-3 ">
