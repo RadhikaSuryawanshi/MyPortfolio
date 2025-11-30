@@ -1,12 +1,4 @@
 'use client';
-import { Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import {
   motion,
   MotionValue,
@@ -18,6 +10,7 @@ import {
 } from 'motion/react';
 import React, { Children, cloneElement, useEffect, useMemo, useRef, useState } from 'react';
 import { useTheme } from "next-themes";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 export type DockItemData = {
   icon: React.ReactNode;
@@ -194,23 +187,7 @@ export default function Dock({
             <DockLabel>{item.label}</DockLabel>
                </DockItem>
         ))}
-         <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" className="rounded-full bg-gray-200 shadow-md   dark:bg-neutral-800 dark:border-neutral-800 h-[41px] w-[41px] flex justify-center items-center">
-          <Sun className="h-[1.4rem] w-[1.4rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90 "  />
-          <Moon className="absolute h-[2rem] w-[2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
-        </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <AnimatedThemeToggler  className="rounded-full bg-gray-200 shadow-md   dark:bg-neutral-800 dark:border-neutral-800 h-[41px] w-[41px] flex justify-center items-center hover:scale-180 focus:scale-180 transition duration-300"/>
 
       </motion.div>
     </motion.div>

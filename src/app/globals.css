@@ -60,7 +60,6 @@
   font-family: var(--font-permanent-marker);
 }
 
-
 .playfair-display{
   font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
@@ -135,9 +134,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.439 0 0);
-  
+
 }
- 
+
 @theme inline {
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
@@ -152,5 +151,11 @@
     @apply bg-background text-foreground;
 
   }
+
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 
 }

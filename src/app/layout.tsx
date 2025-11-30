@@ -2,8 +2,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Permanent_Marker } from "next/font/google";
 import "./globals.css";
-import Dockmain from "../Components/Dockmain";
 import { ThemeProvider } from "@/Components/Theme-provider";
+import { FloatingDockDemo } from "@/Components/FloatingDock";
+
+
 
 
 
@@ -49,27 +51,17 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}  
       >
-           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
+           
         <div className="relative ">
            
         <main className=""> 
           {children}
         </main>
-
-        {/* Dock fixed at bottom */}
-        <div className="fixed bottom-0 left-1/2 -translate-x-1/2">
-        {/* <Dock items={[]}/> */}
-        <Dockmain/>
+        <div className="fixed bottom-0 md:left-1/2 md:-translate-x-1/2  ">
+        <FloatingDockDemo/>
+       
         </div>
         </div> 
-        </ThemeProvider>
-
-     
       </body>
     </html>
   );
