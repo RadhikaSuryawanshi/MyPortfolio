@@ -1,30 +1,23 @@
  'use client'
-
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
-  IconContract,
-  IconHome,
-  IconId,
-  IconInfoCircle,
+  IconHome,  
   IconMail,
-  IconMessage,
-  IconMoon,
-  IconNewSection,
-  IconPhone,
   IconUser,
 } from "@tabler/icons-react";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 
 export function FloatingDockDemo() {
+
   const links = [
     {
       title: "Home",
       icon: (
         <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "/",
+      href: "/?preload=false",
     },
 
     {

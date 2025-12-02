@@ -51,6 +51,7 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}  
       >
+      
            <ThemeProvider
             attribute="class"
             defaultTheme="system"
@@ -69,7 +70,6 @@ export default function RootLayout({
         </div> 
         </ThemeProvider>
 
-     
       </body>
     </html>
   );
