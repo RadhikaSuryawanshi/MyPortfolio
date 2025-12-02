@@ -1,15 +1,10 @@
 'use client'
 import Link from "next/link";
 import Particles from "../Components/Particles";
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-
 import PreLoad from "@/Components/SplitScreen";
 
 
 export default function Mainpage() {
-
-
   return(
   <>
   <PreLoad />

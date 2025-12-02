@@ -1,5 +1,4 @@
- 'use client'
-import React from "react";
+"use client";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   IconBrandGithub,
@@ -53,7 +52,6 @@ export function FloatingDockDemo() {
   return (
     <div>
       <FloatingDock
-         // only for demo, remove for production
         items={links}
       />
     </div>

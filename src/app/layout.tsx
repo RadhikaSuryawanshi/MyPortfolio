@@ -51,21 +51,18 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${permanentMarker.variable} antialiased`}  
       >
-      
            <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-        <div className="relative ">
-           
+        <div className="relative ">  
         <main className=""> 
           {children}
         </main>
         <div className="fixed bottom-0 md:left-1/2 md:-translate-x-1/2">
         <FloatingDockDemo/>
-       
         </div>
         </div> 
         </ThemeProvider>
