@@ -2,12 +2,15 @@
 import Link from "next/link";
 import Particles from "../Components/Particles";
 import SplitScreen from "../Components/SplitScreen";
+import { Suspense } from "react";
 
 
 export default function Mainpage() {
   return(
   <>
+  <Suspense fallback={null}>
   <SplitScreen />
+  </Suspense>
   <div className="w-full relative h-screen ">
       <div className="w-full h-[700px] lg:h-[650px] md:[650px] absolute">
         <Particles
