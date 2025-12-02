@@ -1,13 +1,13 @@
 'use client'
 import Link from "next/link";
 import Particles from "../Components/Particles";
-import PreLoad from "../Components/SplitScreen";
+import SplitScreen from "../Components/SplitScreen";
 
 
 export default function Mainpage() {
   return(
   <>
-  <PreLoad />
+  <SplitScreen />
   <div className="w-full relative h-screen ">
       <div className="w-full h-[700px] lg:h-[650px] md:[650px] absolute">
         <Particles

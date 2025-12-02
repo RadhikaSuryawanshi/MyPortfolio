@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { useSearchParams } from "next/navigation";
 
-export default function PreLoad() {
+export default function SplitScreen() {
 
   const search = useSearchParams();
   const preload = search.get("preload");
