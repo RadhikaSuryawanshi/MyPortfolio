@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link";
 import Particles from "../Components/Particles";
-import PreLoad from "@/Components/SplitScreen";
+import PreLoad from "../Components/SplitScreen";
 
 
 export default function Mainpage() {
